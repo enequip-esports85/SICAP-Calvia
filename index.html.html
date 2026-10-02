@@ -1,0 +1,242 @@
+<!doctype html>
+<html lang="ca">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>SICAP · UTE ENEQUIP – ESPORTS85</title>
+<style>
+:root{--navy:#123a57;--blue:#1878a8;--cyan:#39a9cf;--light:#eef7fb;--ink:#18313f;--muted:#607681;--line:#d8e5eb;--ok:#2f8f5b;--warn:#c88b16;--bad:#b74747}
+*{box-sizing:border-box} body{margin:0;font-family:Arial,sans-serif;color:var(--ink);background:#f5f8fa}
+header{background:linear-gradient(115deg,var(--navy),var(--blue));color:white;padding:22px 28px}
+header h1{margin:0;font-size:25px} header p{margin:6px 0 0;opacity:.9}
+.wrap{display:grid;grid-template-columns:235px 1fr;min-height:calc(100vh - 90px)}
+nav{background:white;border-right:1px solid var(--line);padding:18px 12px}
+nav button{width:100%;text-align:left;border:0;background:transparent;padding:11px 12px;margin:2px 0;border-radius:8px;font-weight:bold;color:var(--ink);cursor:pointer}
+nav button:hover,nav button.active{background:var(--light);color:var(--blue)}
+main{padding:24px;max-width:1500px}.view{display:none}.view.active{display:block}
+h2{margin-top:0;color:var(--navy)} h3{color:var(--navy)}
+.cards{display:grid;grid-template-columns:repeat(4,minmax(150px,1fr));gap:12px;margin:16px 0}
+.card,.panel{background:white;border:1px solid var(--line);border-radius:12px;padding:16px;box-shadow:0 2px 7px #123a570c}
+.card .n{font-size:28px;font-weight:bold;color:var(--blue)} .small{font-size:12px;color:var(--muted)}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:16px}.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+table{width:100%;border-collapse:collapse;background:white}th,td{padding:10px;border-bottom:1px solid var(--line);font-size:13px;text-align:left}th{background:var(--light);color:var(--navy)}
+.badge{padding:4px 8px;border-radius:999px;font-size:11px;font-weight:bold;display:inline-block}.ok{background:#e5f5ec;color:var(--ok)}.warn{background:#fff4d9;color:#986600}.bad{background:#fde8e8;color:var(--bad)}
+label{font-size:12px;font-weight:bold;color:var(--muted);display:block;margin-bottom:5px}
+input,select,textarea{width:100%;padding:9px;border:1px solid #c9d8df;border-radius:7px;font:inherit;background:white}textarea{min-height:85px}
+.formgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.full{grid-column:1/-1}
+.action{border:0;border-radius:8px;background:var(--blue);color:white;padding:10px 15px;font-weight:bold;cursor:pointer}.secondary{background:white;color:var(--blue);border:1px solid var(--blue)}
+.flow{display:flex;gap:6px;align-items:center;flex-wrap:wrap;margin:12px 0}.step{background:var(--light);padding:8px 10px;border-radius:8px;font-size:12px;font-weight:bold;color:var(--navy)}.arrow{color:var(--cyan);font-weight:bold}
+.bar{height:8px;background:#e8eff2;border-radius:8px;overflow:hidden}.bar i{display:block;height:100%;background:var(--cyan)}
+.notice{padding:12px 14px;border-left:4px solid var(--cyan);background:var(--light);border-radius:7px;margin:12px 0}
+footer{margin-top:24px;color:var(--muted);font-size:11px}
+@media(max-width:900px){.wrap{grid-template-columns:1fr}nav{border-right:0;border-bottom:1px solid var(--line);display:flex;overflow:auto}nav button{min-width:170px}.cards,.grid2,.grid3,.formgrid{grid-template-columns:1fr}}
+@media print{nav,.noprint{display:none}.wrap{display:block}main{padding:0}.view{display:none!important}.view.active{display:block!important}.panel,.card{box-shadow:none}}
+</style>
+</head>
+<body>
+<header>
+  <h1>SICAP · Sistema d'Informació i Control d'Activitats de Piscina</h1>
+  <p>UTE ENEQUIP – ESPORTS85 · Demo funcional del sistema de coordinació</p>
+</header>
+<div class="wrap">
+<nav>
+<button class="active" data-view="dashboard">▣ Quadre de comandament</button>
+<button data-view="inscripcions">✎ Inscripcions i cobraments</button>
+<button data-view="registre">＋ Registre diari</button>
+<button data-view="grups">◉ Grups i demanda</button>
+<button data-view="personal">👥 Personal i RRHH</button>
+<button data-view="incidencies">! Incidències</button>
+<button data-view="espais">▦ Espais i reserves</button>
+<button data-view="hores">◷ Hores i recuperacions</button>
+<button data-view="facturacio">€ Facturació mensual</button>
+<button data-view="informes">▤ Informes ICE</button>
+<button data-view="metode">✓ Mètode i traçabilitat</button>
+</nav>
+<main>
+<section id="dashboard" class="view active">
+<h2>Quadre de comandament · Xarxa de piscines</h2>
+<div class="small">Dades fictícies de demostració. Filtre operatiu: octubre 2026.</div>
+<div class="cards">
+<div class="card"><div class="small">Ocupació mitjana</div><div class="n">87%</div><span class="badge ok">ÒPTIM</span></div>
+<div class="card"><div class="small">Assistència mitjana</div><div class="n">82%</div><span class="badge ok">ÒPTIM</span></div>
+<div class="card"><div class="small">Llista d'espera</div><div class="n">42</div><span class="badge warn">ATENCIÓ</span></div>
+<div class="card"><div class="small">Cobertura de personal</div><div class="n">99,2%</div><span class="badge ok">ÒPTIM</span></div>
+</div>
+<div class="grid2">
+<div class="panel"><h3>Ocupació per instal·lació</h3><table id="occTable"></table></div>
+<div class="panel"><h3>Alertes de coordinació</h3>
+<table><tr><th>Àmbit</th><th>Situació</th><th>Estat</th></tr>
+<tr><td>Santa Ponça</td><td>12 persones en espera</td><td><span class="badge warn">ATENCIÓ</span></td></tr>
+<tr><td>Son Ferrer</td><td>1 substitució pendent de tancament</td><td><span class="badge warn">ATENCIÓ</span></td></tr>
+<tr><td>Peguera</td><td>Incidència resolta dins termini</td><td><span class="badge ok">TANCADA</span></td></tr>
+<tr><td>Xarxa</td><td>1 incidència &gt; 7 dies</td><td><span class="badge bad">INTERVENCIÓ</span></td></tr>
+</table></div>
+</div>
+</section>
+
+
+<section id="inscripcions" class="view">
+<h2>Inscripcions i control de cobraments</h2>
+<div class="notice"><b>Demo de coordinació.</b> El sistema registra les dades necessàries de la persona usuària i el seu estat administratiu. Les dades bancàries sensibles no s'han d'exposar en una demo pública.</div>
+<div class="grid2">
+<div class="panel"><h3>Fitxa de participant</h3>
+<div class="formgrid">
+<div><label>Nom</label><input placeholder="Nom"></div><div><label>Llinatges</label><input placeholder="Llinatges"></div><div><label>DNI/NIE</label><input placeholder="Document"></div>
+<div><label>Data de naixement</label><input type="date"></div><div><label>Telèfon</label><input></div><div><label>Correu electrònic</label><input type="email"></div>
+<div><label>Instal·lació</label><select id="uPool"></select></div><div><label>Activitat</label><input placeholder="Natació infantil, aquagym..."></div><div><label>Nivell</label><select><option>Inicial</option><option>Mitjà</option><option>Avançat</option><option>Pendent de valoració</option></select></div>
+<div><label>Grup / horari</label><input placeholder="Grup A · Dl/Dc 17:00"></div><div><label>Modalitat</label><select><option>Resident</option><option>No resident</option><option>Abonat/da</option><option>Família nombrosa</option><option>Altres</option></select></div><div><label>Assegurança</label><select><option>Acceptada</option><option>Renúncia signada</option><option>Pendent</option></select></div>
+<div class="full"><label>Referència de pagament / observacions administratives</label><input placeholder="Referència, rebut o identificador. No mostrar IBAN complet en entorns públics."></div>
+<div class="full"><button class="action" onclick="saveDemo('Inscripció guardada a la demo.')">Guardar inscripció</button></div>
+</div></div>
+<div class="panel"><h3>Control de pagaments</h3>
+<table><tr><th>Participant</th><th>Activitat</th><th>Període</th><th>Estat</th><th>Acció</th></tr>
+<tr><td>Participant demo 01</td><td>Natació infantil</td><td>Oct. 2026</td><td id="pay1"><span class="badge warn">PENDENT</span></td><td><button class="action" onclick="togglePay('pay1',this)">Marcar pagat</button></td></tr>
+<tr><td>Participant demo 02</td><td>Aquagym</td><td>Oct. 2026</td><td><span class="badge ok">PAGAT</span></td><td><button class="action secondary">Veure</button></td></tr>
+</table>
+<p class="small">La versió operativa permetria filtrar per piscina, curs, període, modalitat d'inscripció i estat de cobrament, i generar el desglossament mensual requerit.</p>
+</div></div>
+</section>
+
+<section id="registre" class="view">
+<h2>Registre diari de coordinació</h2>
+<div class="notice">Registre normalitzat per garantir que totes les piscines treballin amb els mateixos camps i criteris.</div>
+<div class="panel">
+<div class="formgrid">
+<div><label>Data</label><input type="date" id="rDate"></div>
+<div><label>Instal·lació</label><select id="rPool"></select></div>
+<div><label>Coordinador/a</label><input placeholder="Nom i llinatges"></div>
+<div><label>Grups previstos</label><input type="number" value="12"></div>
+<div><label>Grups realitzats</label><input type="number" value="12"></div>
+<div><label>Persones assistents</label><input type="number" value="108"></div>
+<div><label>Personal previst</label><input type="number" value="8"></div>
+<div><label>Personal present</label><input type="number" value="8"></div>
+<div><label>Incidències del torn</label><select><option>Cap</option><option>Usuari/ària</option><option>Personal</option><option>Instal·lació</option><option>Activitat</option></select></div>
+<div class="full"><label>Observacions</label><textarea placeholder="Només informació rellevant per al seguiment del servei"></textarea></div>
+<div class="full"><button class="action" onclick="saveDemo('Registre diari guardat a la demo.')">Guardar registre</button></div>
+</div></div>
+</section>
+
+<section id="grups" class="view">
+<h2>Grups, ocupació i demanda</h2>
+<div class="flow"><span class="step">INSCRIPCIÓ</span><span class="arrow">→</span><span class="step">NIVELL</span><span class="arrow">→</span><span class="step">GRUP</span><span class="arrow">→</span><span class="step">ASSISTÈNCIA</span><span class="arrow">→</span><span class="step">PROGRESSIÓ</span></div>
+<div class="panel"><table>
+<tr><th>Instal·lació</th><th>Programa</th><th>Places</th><th>Inscrits</th><th>Ocupació</th><th>Espera</th><th>Estat</th></tr>
+<tr><td>Santa Ponça</td><td>Natació infantil</td><td>10</td><td>10</td><td>100%</td><td>7</td><td><span class="badge warn">ATENCIÓ</span></td></tr>
+<tr><td>Son Caliu</td><td>Adults iniciació</td><td>12</td><td>9</td><td>75%</td><td>0</td><td><span class="badge ok">ÒPTIM</span></td></tr>
+<tr><td>Bendinat</td><td>Aquagym</td><td>15</td><td>15</td><td>100%</td><td>5</td><td><span class="badge warn">ATENCIÓ</span></td></tr>
+</table></div>
+</section>
+
+<section id="personal" class="view">
+<h2>Personal, cobertura i gestió RRHH</h2>
+<div class="cards"><div class="card"><div class="small">Personal actiu</div><div class="n">48</div></div><div class="card"><div class="small">Cobertura avui</div><div class="n">100%</div></div><div class="card"><div class="small">Vacances pendents</div><div class="n">3</div></div><div class="card"><div class="small">Uniformitat pendent</div><div class="n">2</div></div></div>
+<div class="panel"><table><tr><th>Treballador/a</th><th>Categoria</th><th>Instal·lació</th><th>Uniformitat</th><th>Vacances</th><th>Estat</th></tr>
+<tr><td>Treballador/a demo 01</td><td>Monitor/a</td><td>Son Ferrer</td><td><span class="badge ok">ENTREGADA</span></td><td>12–18/11 · aprovada</td><td><span class="badge ok">ACTIU</span></td></tr>
+<tr><td>Treballador/a demo 02</td><td>Socorrista</td><td>Magaluf</td><td><span class="badge warn">PENDENT</span></td><td>Sense sol·licitud</td><td><span class="badge ok">ACTIU</span></td></tr>
+<tr><td>Treballador/a demo 03</td><td>Coord. piscina</td><td>Santa Ponça</td><td><span class="badge ok">ENTREGADA</span></td><td>Sol·licitada · pendent</td><td><span class="badge ok">ACTIU</span></td></tr>
+</table></div>
+<div class="notice"><b>Fitxa de personal:</b> categoria, centre/s assignats, jornada, documentació, uniformitat i data de lliurament, vacances/permisos, absències, substitucions i estat de cobertura.</div>
+</section>
+
+<section id="incidencies" class="view">
+<h2>Gestió d'incidències de coordinació</h2>
+<div class="flow"><span class="step">DETECTAR</span><span class="arrow">→</span><span class="step">REGISTRAR</span><span class="arrow">→</span><span class="step">ACTUAR</span><span class="arrow">→</span><span class="step">COMUNICAR</span><span class="arrow">→</span><span class="step">VERIFICAR</span><span class="arrow">→</span><span class="step">TANCAR</span></div>
+<div class="grid2"><div class="panel"><h3>Nova incidència</h3>
+<div><label>Instal·lació</label><select id="iPool"></select></div><br>
+<div><label>Tipologia</label><select><option>Organitzativa</option><option>Personal</option><option>Usuari/ària</option><option>Espai/reserva</option><option>Activitat</option></select></div><br>
+<div><label>Prioritat</label><select><option>Baixa</option><option>Mitjana</option><option>Alta</option></select></div><br>
+<div><label>Descripció</label><textarea></textarea></div><br>
+<button class="action" onclick="saveDemo('Incidència registrada a la demo.')">Registrar</button>
+</div><div class="panel"><h3>Seguiment</h3><table><tr><th>ID</th><th>Instal·lació</th><th>Estat</th></tr><tr><td>INC-026</td><td>Peguera</td><td><span class="badge ok">TANCADA</span></td></tr><tr><td>INC-027</td><td>Santa Ponça</td><td><span class="badge warn">EN SEGUIMENT</span></td></tr></table></div></div>
+</section>
+
+<section id="espais" class="view">
+<h2>Espais, horaris i reserves</h2>
+<div class="panel"><table><tr><th>Instal·lació</th><th>Espai</th><th>Ús</th><th>Horari</th><th>Estat</th></tr>
+<tr><td>Melani Costa</td><td>Carrils 1–2</td><td>Natació escolar</td><td>10:00–12:00</td><td><span class="badge ok">CONFIRMAT</span></td></tr>
+<tr><td>Santa Ponça</td><td>Carril 5</td><td>Reserva puntual</td><td>18:00–19:00</td><td><span class="badge warn">PENDENT ICE</span></td></tr>
+</table></div>
+</section>
+
+
+<section id="hores" class="view">
+<h2>Hores executades i recuperacions</h2>
+<div class="cards"><div class="card"><div class="small">Activitats aquàtiques</div><div class="n">1.146 h</div></div><div class="card"><div class="small">Socorrisme</div><div class="n">1.826 h</div></div><div class="card"><div class="small">Coordinació</div><div class="n">604 h</div></div><div class="card"><div class="small">Recuperacions pendents</div><div class="n">6 h</div></div></div>
+<div class="grid2"><div class="panel"><h3>Hores per treballador/a</h3><table>
+<tr><th>Treballador/a</th><th>Categoria</th><th>Piscina</th><th>Hores</th></tr>
+<tr><td>Treballador/a demo 01</td><td>Monitor/a</td><td>Son Ferrer</td><td>84,0</td></tr>
+<tr><td>Treballador/a demo 02</td><td>Socorrista</td><td>Magaluf</td><td>152,0</td></tr>
+<tr><td>Treballador/a demo 03</td><td>Coord. piscina</td><td>Santa Ponça</td><td>96,0</td></tr>
+</table></div>
+<div class="panel"><h3>Borsa / control de recuperacions</h3><table>
+<tr><th>Data</th><th>Piscina</th><th>Causa</th><th>Classes afectades</th><th>Hores</th><th>Estat</th></tr>
+<tr><td>14/10</td><td>Santa Ponça</td><td>Vòmit / tancament no programat</td><td>2</td><td>2 h</td><td><span class="badge warn">PENDENT</span></td></tr>
+<tr><td>21/10</td><td>Bendinat</td><td>Incidència tècnica</td><td>4</td><td>4 h</td><td><span class="badge warn">PENDENT</span></td></tr>
+<tr><td>05/10</td><td>Peguera</td><td>Tancament no programat</td><td>2</td><td>2 h</td><td><span class="badge ok">RECUPERADA</span></td></tr>
+</table></div></div>
+</section>
+
+<section id="facturacio" class="view">
+<h2>Pre-facturació mensual del servei</h2>
+<div class="notice">La demo calcula la pre-facturació a partir de les <b>hores efectivament executades</b>. Els preus/hora definitius s'introduiran segons l'oferta adjudicada.</div>
+<div class="panel"><table>
+<tr><th>Categoria</th><th>Hores executades</th><th>Preu/hora demo</th><th>Import demo</th></tr>
+<tr><td>Coordinació general</td><td>150,0</td><td>—</td><td>—</td></tr>
+<tr><td>Coordinació piscina</td><td>454,0</td><td>—</td><td>—</td></tr>
+<tr><td>Monitor/a activitats aquàtiques</td><td>1.146,0</td><td>—</td><td>—</td></tr>
+<tr><td>Socorrista</td><td>1.826,0</td><td>—</td><td>—</td></tr>
+</table>
+<br><button class="action" onclick="alert('Demo: en la versió operativa es generaria el desglossament mensual per piscina, servei, categoria, dies i horaris.')">Generar desglossament mensual</button>
+</div>
+<div class="grid2" style="margin-top:16px"><div class="panel"><h3>Desglossament requerit</h3><p class="small">Piscina · servei/activitat · categoria · treballador/a · dies · horari · hores efectives · festius sense activitat · CEIP i hores de natació escolar quan correspongui.</p></div><div class="panel"><h3>Validació</h3><p class="small">1. Tancament d'hores → 2. Revisió coordinació → 3. Validació → 4. Desglossament ICE → 5. Factura mensual.</p></div></div>
+</section>
+
+<section id="informes" class="view">
+<h2>Informes i lliurament a l'ICE</h2>
+<div class="grid3">
+<div class="card"><b>DIARI</b><p class="small">Registre operatiu i incidències.</p></div>
+<div class="card"><b>SETMANAL</b><p class="small">Seguiment intern i alertes.</p></div>
+<div class="card"><b>MENSUAL</b><p class="small">Indicadors, hores, incidències i accions.</p></div>
+</div>
+<div class="panel"><h3>Informe mensual · estructura</h3>
+<table><tr><th>Bloc</th><th>Contingut</th></tr>
+<tr><td>1. Resum executiu</td><td>Situació general, fets rellevants i alertes.</td></tr>
+<tr><td>2. Activitat</td><td>Grups, ocupació, assistència, altes, baixes i espera.</td></tr>
+<tr><td>3. Personal</td><td>Hores efectives, cobertura, absències i substitucions.</td></tr>
+<tr><td>4. Incidències</td><td>Obertes, tancades, recurrència i mesures.</td></tr>
+<tr><td>5. Espais</td><td>Reserves, canvis i ús.</td></tr>
+<tr><td>6. Millora</td><td>Accions proposades, responsable i termini.</td></tr>
+</table><br><button class="action noprint" onclick="window.print()">Vista d'impressió / PDF</button></div>
+</section>
+
+<section id="metode" class="view">
+<h2>Mètode d'anàlisi i avaluació</h2>
+<div class="grid2">
+<div class="panel"><h3>4 dimensions d'anàlisi</h3>
+<table><tr><th>Dimensió</th><th>Pregunta</th></tr>
+<tr><td><b>Situació</b></td><td>Quin és el valor actual?</td></tr>
+<tr><td><b>Evolució</b></td><td>Com varia respecte del període anterior?</td></tr>
+<tr><td><b>Desviació</b></td><td>S'allunya del valor esperat?</td></tr>
+<tr><td><b>Comparació</b></td><td>Hi ha diferències entre piscines, grups o programes?</td></tr></table></div>
+<div class="panel"><h3>Semàfor de gestió</h3>
+<p><span class="badge ok">ÒPTIM</span> Dins valors esperats → manteniment i seguiment.</p>
+<p><span class="badge warn">ATENCIÓ</span> Desviació o tendència → anàlisi de causa.</p>
+<p><span class="badge bad">INTERVENCIÓ</span> Desviació significativa → acció correctora, responsable, termini i verificació.</p>
+</div></div>
+<div class="notice"><b>Traçabilitat:</b> DADA → INDICADOR → ALERTA → CAUSA → ACCIÓ → RESPONSABLE → TERMINI → VERIFICACIÓ</div>
+</section>
+
+<footer>Demo SICAP · UTE ENEQUIP – ESPORTS85 · Les dades mostrades són fictícies i tenen únicament finalitat demostrativa.</footer>
+</main>
+</div>
+<script>
+const pools=["Melani Costa","Peguera","Santa Ponça","Son Ferrer","Son Caliu","Bendinat","Magaluf","Es Capdellà"];
+document.querySelectorAll("#rPool,#iPool,#uPool").forEach(s=>pools.forEach(p=>s.add(new Option(p,p))));
+document.getElementById("rDate").value=new Date().toISOString().slice(0,10);
+document.querySelectorAll("nav button").forEach(b=>b.onclick=()=>{document.querySelectorAll("nav button").forEach(x=>x.classList.remove("active"));b.classList.add("active");document.querySelectorAll(".view").forEach(v=>v.classList.remove("active"));document.getElementById(b.dataset.view).classList.add("active")});
+const occ=[["Melani Costa",91],["Peguera",84],["Santa Ponça",96],["Son Ferrer",88],["Son Caliu",82],["Bendinat",90],["Magaluf",78],["Es Capdellà",76]];
+document.getElementById("occTable").innerHTML="<tr><th>Instal·lació</th><th>Ocupació</th><th></th></tr>"+occ.map(x=>`<tr><td>${x[0]}</td><td><b>${x[1]}%</b></td><td><div class="bar"><i style="width:${x[1]}%"></i></div></td></tr>`).join("");
+function togglePay(id,btn){document.getElementById(id).innerHTML='<span class="badge ok">PAGAT</span>';btn.textContent='Pagat';btn.disabled=true;}
+function saveDemo(msg){localStorage.setItem("sicap_demo_last",new Date().toISOString());alert(msg+"\n\nEn la versió definitiva, aquest registre s'emmagatzemaria a la base de dades centralitzada.");}
+</script>
+</body></html>
