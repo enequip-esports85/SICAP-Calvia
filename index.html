@@ -46,6 +46,7 @@ footer{margin-top:24px;color:var(--muted);font-size:11px}
 <button data-view="grups">◉ Grups i demanda</button>
 <button data-view="personal">👥 Personal i RRHH</button>
 <button data-view="incidencies">! Incidències</button>
+<button data-view="socorrisme">🛟 Socorrisme i seguretat</button>
 <button data-view="espais">▦ Espais i reserves</button>
 <button data-view="hores">◷ Hores i recuperacions</button>
 <button data-view="facturacio">€ Facturació mensual</button>
@@ -150,6 +151,49 @@ footer{margin-top:24px;color:var(--muted);font-size:11px}
 </div><div class="panel"><h3>Seguiment</h3><table><tr><th>ID</th><th>Instal·lació</th><th>Estat</th></tr><tr><td>INC-026</td><td>Peguera</td><td><span class="badge ok">TANCADA</span></td></tr><tr><td>INC-027</td><td>Santa Ponça</td><td><span class="badge warn">EN SEGUIMENT</span></td></tr></table></div></div>
 </section>
 
+
+<section id="socorrisme" class="view">
+<h2>Socorrisme, seguretat i traçabilitat</h2>
+<div class="notice"><b>Procediment SOS.</b> Mòdul específic per registrar incidències de salvament, revisar el material essencial i assegurar la comunicació i el seguiment fins al tancament.</div>
+<div class="flow"><span class="step">PREVENIR</span><span class="arrow">→</span><span class="step">VIGILAR</span><span class="arrow">→</span><span class="step">DETECTAR</span><span class="arrow">→</span><span class="step">ACTUAR</span><span class="arrow">→</span><span class="step">COMUNICAR</span><span class="arrow">→</span><span class="step">REGISTRAR</span><span class="arrow">→</span><span class="step">REVISAR</span></div>
+<div class="grid2">
+<div class="panel"><h3>Registre d'incidència SOS</h3>
+<div class="formgrid">
+<div><label>Instal·lació</label><select id="sPool"></select></div><div><label>Data i hora</label><input type="datetime-local"></div>
+<div><label>Nivell</label><select><option>N1 · Lleu</option><option>N2 · Rellevant</option><option>N3 · Emergència</option></select></div>
+<div><label>Tipologia</label><select><option>Rescat / dificultat aquàtica</option><option>Accident / traumatisme</option><option>Emergència cardiorespiratòria</option><option>Vòmit / defecació</option><option>Incidència sanitària</option><option>Evacuació</option><option>Material / equip</option><option>Altres</option></select></div>
+<div><label>112 activat</label><select><option>No</option><option>Sí</option></select></div><div><label>DESA utilitzat</label><select><option>No</option><option>Sí</option></select></div>
+<div><label>Tancament / restricció</label><select><option>No</option><option>Sí</option></select></div><div><label>Comunicació ICE</label><select><option>No requerida</option><option>Realitzada</option><option>Pendent</option></select></div>
+<div class="full"><label>Actuació i seguiment</label><textarea placeholder="Actuació realitzada, recursos utilitzats, comunicacions i estat final"></textarea></div>
+<div class="full"><button class="action" onclick="saveDemo('Incidència SOS registrada a la demo.')">Registrar incidència SOS</button></div>
+</div></div>
+<div class="panel"><h3>Nivells i circuit de comunicació</h3>
+<table><tr><th>Nivell</th><th>Resposta</th></tr>
+<tr><td><span class="badge ok">N1 · LLEU</span></td><td>Atenció → registre → seguiment ordinari.</td></tr>
+<tr><td><span class="badge warn">N2 · RELLEVANT</span></td><td>Actuació → coordinació → registre → seguiment.</td></tr>
+<tr><td><span class="badge bad">N3 · EMERGÈNCIA</span></td><td>Protocol d'emergència → 112 si escau → coordinació → ICE → informe.</td></tr></table>
+<br><div class="notice"><b>Canal ordinari:</b> Socorrista → Coordinació de piscina → Coordinació General → ICE.<br><b>Emergència:</b> activació immediata dels serveis d'emergència quan correspongui i comunicació simultània a la cadena de coordinació.</div>
+</div></div>
+<div class="grid2" style="margin-top:16px">
+<div class="panel"><h3>CHECK-LIST SOS · inici de torn</h3>
+<table><tr><th>Element</th><th>Estat demo</th></tr>
+<tr><td>Botiquí i primers auxilis</td><td><span class="badge ok">OPERATIU</span></td></tr>
+<tr><td>Maletí de reanimació</td><td><span class="badge ok">OPERATIU</span></td></tr>
+<tr><td>Oxigenoteràpia</td><td><span class="badge ok">OPERATIU</span></td></tr>
+<tr><td>DESA i consumibles</td><td><span class="badge ok">OPERATIU</span></td></tr>
+<tr><td>Material de rescat</td><td><span class="badge ok">OPERATIU</span></td></tr>
+<tr><td>Comunicacions</td><td><span class="badge ok">OPERATIU</span></td></tr>
+<tr><td>Infermeria / primers auxilis</td><td><span class="badge ok">CONFORME</span></td></tr>
+<tr><td>Accessos i vies d'evacuació</td><td><span class="badge ok">CONFORME</span></td></tr></table>
+<br><button class="action" onclick="saveDemo('Check-list SOS validada a la demo.')">Validar check-list</button>
+</div>
+<div class="panel"><h3>Control de material no conforme</h3>
+<div class="flow"><span class="step">DETECCIÓ</span><span class="arrow">→</span><span class="step">RETIRADA / SENYALITZACIÓ</span><span class="arrow">→</span><span class="step">COMUNICACIÓ</span><span class="arrow">→</span><span class="step">REPOSICIÓ</span><span class="arrow">→</span><span class="step">VERIFICACIÓ</span><span class="arrow">→</span><span class="step">TANCAMENT</span></div>
+<p class="small">Cada revisió queda vinculada a instal·lació, data, torn, responsable i estat. Els elements essencials no conformes generen una alerta de coordinació fins a la seva resolució.</p>
+<h3>Indicadors SOS</h3><table><tr><th>Indicador</th><th>Valor demo</th></tr><tr><td>Check-lists conformes</td><td>100%</td></tr><tr><td>Incidències N3 obertes</td><td>0</td></tr><tr><td>Material pendent de reposició</td><td>1</td></tr><tr><td>Incidències recurrents</td><td>0</td></tr></table>
+</div></div>
+</section>
+
 <section id="espais" class="view">
 <h2>Espais, horaris i reserves</h2>
 <div class="panel"><table><tr><th>Instal·lació</th><th>Espai</th><th>Ús</th><th>Horari</th><th>Estat</th></tr>
@@ -231,7 +275,7 @@ footer{margin-top:24px;color:var(--muted);font-size:11px}
 </div>
 <script>
 const pools=["Melani Costa","Peguera","Santa Ponça","Son Ferrer","Son Caliu","Bendinat","Magaluf","Es Capdellà"];
-document.querySelectorAll("#rPool,#iPool,#uPool").forEach(s=>pools.forEach(p=>s.add(new Option(p,p))));
+document.querySelectorAll("#rPool,#iPool,#uPool,#sPool").forEach(s=>pools.forEach(p=>s.add(new Option(p,p))));
 document.getElementById("rDate").value=new Date().toISOString().slice(0,10);
 document.querySelectorAll("nav button").forEach(b=>b.onclick=()=>{document.querySelectorAll("nav button").forEach(x=>x.classList.remove("active"));b.classList.add("active");document.querySelectorAll(".view").forEach(v=>v.classList.remove("active"));document.getElementById(b.dataset.view).classList.add("active")});
 const occ=[["Melani Costa",91],["Peguera",84],["Santa Ponça",96],["Son Ferrer",88],["Son Caliu",82],["Bendinat",90],["Magaluf",78],["Es Capdellà",76]];
